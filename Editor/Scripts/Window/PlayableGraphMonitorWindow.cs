@@ -69,9 +69,6 @@ namespace GBG.PlayableGraphMonitor.Editor
 
         private long _nextUpdateViewTimeMS;
 
-        // ReSharper disable once IdentifierTypo
-        private bool _updateNodesMovability;
-
 
         private void OnEnable()
         {
@@ -129,11 +126,6 @@ namespace GBG.PlayableGraphMonitor.Editor
             // TODO FIXME CLIP_PROGRESS: If I reverse the order of these two method calls, the progress bar on the Clip node will become inaccurate. Why???
             DrawInspector();
             UpdateGraphView();
-
-            if (_updateNodesMovability)
-            {
-                _graphView.SetNodesMovability(!_autoLayoutToggle.value);
-            }
         }
 
         private void ShowButton(Rect pos)

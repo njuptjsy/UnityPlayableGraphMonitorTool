@@ -151,7 +151,6 @@ namespace GBG.PlayableGraphMonitor.Editor
             _autoLayoutToggle.RegisterValueChangedCallback(ToggleAutoLayout);
             _autoLayoutLabel = _autoLayoutToggle.Q<TextElement>(className: "unity-text-element");
             _autoLayoutLabel.style.color = _viewUpdateContext.AutoLayout ? NormalTextColor : NotableTextColor;
-            _updateNodesMovability = true;
             _toolbar.Add(_autoLayoutToggle);
 
             // Refresh rate popup
@@ -275,8 +274,6 @@ namespace GBG.PlayableGraphMonitor.Editor
             _autoLayoutLabel.style.color = _viewUpdateContext.AutoLayout
                 ? NormalTextColor
                 : NotableTextColor;
-
-            _updateNodesMovability = true;
         }
 
         private void OnRefreshRateChanged(ChangeEvent<Enum> evt)
