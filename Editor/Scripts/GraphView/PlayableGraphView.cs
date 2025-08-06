@@ -112,6 +112,7 @@ namespace GBG.PlayableGraphMonitor.Editor.GraphView
 
             UpdateActiveEdges(context);
             RemoveUnusedElementsFromView();
+            SetNodesMovability(!context.AutoLayout);
 
             if (playableGraphChanged)
             {
@@ -264,6 +265,8 @@ namespace GBG.PlayableGraphMonitor.Editor.GraphView
             var portColor = GraphTool.GetPortColor(weight);
             inputPort.portColor = portColor;
             outputPort.portColor = portColor;
+            edge.inputColor = portColor;
+            edge.outputColor = portColor;
 
             if (edge.input != inputPort)
             {

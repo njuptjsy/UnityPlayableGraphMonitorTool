@@ -99,19 +99,19 @@ namespace GBG.PlayableGraphMonitor.Editor.Utility
 
         public static Color GetPortColor(float weight)
         {
-            if (weight < 0)
+            if (weight <= 0)
             {
-                // In theory, there should be no inputs with negative weights in PlayableGraph
-                return PortNegativeWeightColor;
+                if (weight < 0)
+                {
+                    // In theory, there should be no inputs with negative weights in PlayableGraph
+                    return PortNegativeWeightColor;
+                }
+
+                var alpha = (weight + ColorAlphaFactor) / (1 + ColorAlphaFactor);
+                return new Color(1, 1, 1, alpha);
             }
 
-            if (weight > 1)
-            {
-                return PortOverflowWeightColor;
-            }
-
-            var alpha = (weight + ColorAlphaFactor) / (1 + ColorAlphaFactor);
-            return new Color(1, 1, 1, alpha);
+            return Color.red;
         }
 
         #endregion

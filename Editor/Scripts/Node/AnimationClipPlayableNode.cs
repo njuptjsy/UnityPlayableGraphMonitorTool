@@ -20,8 +20,12 @@ namespace GBG.PlayableGraphMonitor.Editor.Node
         {
             var banner = mainContainer.Q("divider");
             banner.style.height = StyleKeyword.Auto;
+            banner.pickingMode = PickingMode.Ignore;
 
-            _progressBar = new ProgressBar();
+            _progressBar = new ProgressBar
+            {
+                pickingMode = PickingMode.Ignore,
+            };
 #if !UNITY_2021_1_OR_NEWER
             var progressBarBg = _progressBar.Q<VisualElement>(className: "unity-progress-bar__background");
             progressBarBg.style.height = 17;
@@ -31,6 +35,7 @@ namespace GBG.PlayableGraphMonitor.Editor.Node
             _clipField = new ObjectField
             {
                 objectType = typeof(Motion),
+                pickingMode = PickingMode.Ignore,
             };
             var clipFieldSelector = _clipField.Q(className: "unity-object-field__selector");
             clipFieldSelector.style.display = DisplayStyle.None;
